@@ -1,5 +1,16 @@
 const mongoose = require('mongoose');
 
+const examTimelineSchema = new mongoose.Schema({
+  examDate: {
+    type: Date,
+  },
+  description: {
+    type: String,
+  },
+});
+
+
+
 const classSchema = new mongoose.Schema({
   className: {
     type: String,
@@ -9,6 +20,7 @@ const classSchema = new mongoose.Schema({
     type: String,
     default: '',
   },
+  examTimeline: [examTimelineSchema], // Add the examTimeline field
 });
 
 const teacherSchema = new mongoose.Schema({
@@ -21,6 +33,15 @@ const teacherSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  type: {
+    type: String,
+    enum: ['Teacher', 'HOD'], // Enum to specify the type
+    default: 'Teacher',// Default to 'Teacher'
+    required: true,
+    },
+    department: {
+      type: String,
+    },
   contact: String,
   classes: [classSchema],
 });

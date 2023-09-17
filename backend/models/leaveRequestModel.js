@@ -10,13 +10,21 @@ const leaveRequestSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
+  leavetype: {
+    type: String,
+    enum: ['Sick Leave','Other'],
+    required:true,
+  },
   reason: String,
   status: {
     type: String,
     enum: ['Pending', 'Approved', 'Denied'],
     default: 'Pending',
   },
-  hodComment: String,
+  createdAt: {
+    type: Date,
+    required: true,
+  },
 });
 
 const LeaveRequest = mongoose.model('LeaveRequest', leaveRequestSchema);
