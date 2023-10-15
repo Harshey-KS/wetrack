@@ -9,8 +9,6 @@ const examTimelineSchema = new mongoose.Schema({
   },
 });
 
-
-
 const classSchema = new mongoose.Schema({
   className: {
     type: String,
