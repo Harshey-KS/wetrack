@@ -2,6 +2,14 @@ const express = require('express');
 const router = express.Router();
 const teacherController = require('../controllers/teacherController');
 
+// Route for registering a new teacher
+//post,body
+router.post('/register', teacherController.registerTeacher);
+
+// Route for logging in a teacher
+//post, body
+router.post('/login', teacherController.loginTeacher);
+
 // Create a new teacher
 router.post('/', teacherController.createTeacher);
 

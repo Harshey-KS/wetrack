@@ -1,4 +1,41 @@
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const Teacher = require('../models/teacherModel');
+
+// Registering a new teacher
+exports.registerTeacher = async (req, res) => {
+  try {
+    const { name, email, type, department, password, contact, classes } = req.body;
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const teacher = new Teacher({ name, email, type, department, password: hashedPassword, contact, classes });
+    await teacher.save();
+    res.status(201).json({ message: 'Teacher registered successfully', data: teacher });//response
+  } catch (error) {
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+//Login Teacher
+exports.loginTeacher = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    console.log(email,password)
+    const teacher = await Teacher.findOne({ email });//searches teacher by this email
+    if (!teacher) {
+      return res.status(404).json({ error: 'Teacher not found' });
+    }
+    const validPassword = await bcrypt.compare(password, teacher.password);
+    if (!validPassword) {
+      return res.status(400).json({ error: 'Invalid password' });
+    }
+    const token = jwt.sign({ email: teacher.email, type: teacher.type }, 'your_secret_key', { expiresIn: '1h' }); // Change 'your_secret_key' to a more secure secret key
+    res.status(200).json({ message: 'Login successful', token: token });
+  } catch (error) {
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+
 
 // Create a new teacher
 exports.createTeacher = async (req, res) => {

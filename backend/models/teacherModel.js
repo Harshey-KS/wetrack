@@ -40,6 +40,7 @@ const teacherSchema = new mongoose.Schema({
     department: {
       type: String,
     },
+    password: String,
   contact: String,
   classes: [classSchema],
 });
