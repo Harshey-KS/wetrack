@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAuthContext } from "../AuthContext";
+import { useAuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -13,7 +13,7 @@ export const useLogin = () => {
     setIsLoading(true);
     setError(null);
 
-    console.log(email,password);
+    console.log(email,password); //post request to login
     const response = await axios.post("teachers/login", {
       email,
       password,
@@ -26,19 +26,11 @@ export const useLogin = () => {
     const json = await response.data;
     console.log(json);
     localStorage.setItem("profile", JSON.stringify(json));
-    // save the user to local storage
-    // localStorage.setItem(
-    //   "profile",
-    //   JSON.stringify({ email: "hardikg2907@gmail.com" })
-    // );
-    // navigate("/home");
-
-    // update the auth context
     dispatch({ type: "LOGIN", payload: json });
 
     setIsLoading(false);
     return true;
-    // }
+
   };
 
   return { login, isLoading, error };
@@ -62,23 +54,8 @@ export const useRegister = () => {
     });
     const json = await response.data;
     console.log(json);
-    // setError(json.error);
-    // if (!response.ok) {
-    //   setIsLoading(false);
-    //   setError(json.error);
-    //   setTimeout(() => {
-    //     setError(null);
-    //   }, 2000);
-    // }
+    
     localStorage.setItem("profile", JSON.stringify(json));
-    // save the user to local storage
-    // localStorage.setItem(
-    //   "profile",
-    //   JSON.stringify({ email: "hardikg2907@gmail.com" })
-    // );
-    // navigate("/home");
-
-    // update the auth context
     dispatch({ type: "LOGIN", payload: json });
 
     setIsLoading(false);
