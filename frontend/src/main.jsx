@@ -5,6 +5,7 @@ import "./index.css";
 import axios from "axios";
 import { AuthContextProvider } from "./context/AuthContext.jsx";
 import Sidebar from "./components/SideBar.jsx";
+import { BrowserRouter} from "react-router-dom";
 
 axios.defaults.baseURL = "http://localhost:5000/api/";
 
@@ -15,4 +16,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <App />
     </AuthContextProvider>
   </React.StrictMode>
-);
+  );
