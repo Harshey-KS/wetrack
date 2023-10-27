@@ -12,7 +12,7 @@ axios.defaults.baseURL = "http://localhost:5000/api/";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthContextProvider>
-      <Sidebar />
+      {/* <Sidebar /> */}
       <App />
     </AuthContextProvider>
   </React.StrictMode>
