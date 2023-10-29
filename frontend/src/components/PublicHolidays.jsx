@@ -3,10 +3,10 @@ import React from 'react'
 export default function PublicHolidays() {
   return (
     <div className='flex flex-col-reverse h-full'>
-    <div className='flex flex-col bg-white w-1/4 h-3/4 rounded-2xl m-2 shadow'>
-      <div className='text-[color:var(--primary2)] font-bold'>Public Holidays</div>
+    <div className='flex flex-col bg-white w-1/4 h-3/4 rounded-2xl m-2 shadowBig'>
+      <div className='text-[color:var(--primary2)] font-semibold text-lg mt-1 pt-1'>Public Holidays</div>
       <div className='flex flex-row justify-end p-4'>
-        <div className='bg-[var(--primary3)] flex px-3 py-2 rounded-md shadow  border-1 border-gray-300	'>
+        <div className='bg-[var(--primary3)] flex px-3 py-1.5 rounded-md shadowBig  border-1 border-gray-300	'>
         <div className='text-[color:var(--primary2)] font-semibold text-sm '>This Month</div>
         <div><svg className="svg-icon w-4 pt-1  mt-0.5 h-4" stroke="currentColor"
                     strokeWidth={0.001}  color="black"  viewBox="0 0 20 20">
@@ -14,7 +14,7 @@ export default function PublicHolidays() {
 						</svg></div>
                         </div>
       </div>
-      <div className='flex-col mt-4 p-px'>
+      <div className='flex-col mt-2 p-px'>
         <div className='flex flex-col m-0 p-0 border-b-[#C7C9CF] border-[1px] border-transparent'>
             <div className='flex gap-2 p-0 m-0.5'>
                 <div><svg className="mt-1 h-3.5 w-3.5 svg-icon" viewBox="0 0 20 20">
