@@ -1,22 +1,20 @@
-import React from 'react';
-import Sidebar from './SideBar';
-import Header from './Header';
+import React from "react";
+import Sidebar from "./SideBar";
+import Header from "./Header";
 
 const Layout = ({ children }) => {
-    return (
+  return (
     <React.Fragment>
-        <div className='flex bg-[#E8F7FF]'>
+      <div className="flex bg-[#E8F7FF] w-screen h-screen">
         <Sidebar />
-        <div className="flex flex-col pt-0 w-screen h-screen">
-        <div >
-                <Header/>
-            </div>
-            <div className='w-full h-full'>
-            {children}
-            </div>
+        <div className="flex flex-col pt-0 w-full">
+          {/* <div> */}
+          <Header />
+          {/* </div> */}
+          <div className="w-full h-full p-2">{children}</div>
         </div>
-        </div>
+      </div>
     </React.Fragment>
-    );
+  );
 };
 export default Layout;
