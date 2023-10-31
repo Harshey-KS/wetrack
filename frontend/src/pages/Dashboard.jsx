@@ -23,15 +23,21 @@ const Dashboard = () => {
   });
 
   return (
-    <div className="h-full w-full flex-col gap-4">
-      {/* <PieCards /> */}
-      {/* <Calendar
-        selected={date}
-        onSelect={setDate}
-        className="bg-white h-fit rounded-2xl bigShadow"
-      /> */}
-      {/* <PublicHolidays /> */}
-      <BarChart chartData={userData} />
+    <div className="h-full w-full p-2 flex-col ml-2">
+      {/* 1 */}
+      <PieCards />
+      {/* 2 */}
+      <div className="flex">
+        <div className="flex-col m-2 ml-8">
+          <BarChart chartData={userData} className="m-2" />
+          <Calendar
+            selected={date}
+            onSelect={setDate}
+            className="bg-white h-fit w-fit rounded-2xl bigShadow mt-3"
+          />
+        </div>
+        <PublicHolidays />
+      </div>
     </div>
   );
 };

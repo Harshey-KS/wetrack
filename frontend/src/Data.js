@@ -11,7 +11,7 @@ export const UserData = [
     },
     {
       id: 3,
-      month: "March",
+      month: "Mar",
       leavesTakenBar:2,
     },
     {
@@ -36,7 +36,7 @@ export const UserData = [
       },
       {
         id: 8,
-        month: "August",
+        month: "Aug",
         leavesTakenBar:2,
       },
       {

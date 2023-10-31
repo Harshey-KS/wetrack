@@ -28,22 +28,22 @@ const pieCards = [
 
 const PieCards = () => {
   return (
-    <div className="flex w-full justify-around m-4">
+    <div className="flex w-full justify-around -ml-4 -mr-2 ">
       {pieCards?.map((card) => (
-        <div className="bg-white rounded-xl h-36 w-64 p-2 bigShadow ">
+        <div className="bg-white rounded-xl h-30 w-60 p-2 bigShadow">
           {/* 1 */}
-          <div className="flex justify-between">
-            <div className="font-semibold text-[#54548C] text-sm">
+          <div className="flex justify-between -m-0.5 p-0">
+            <div className="font-semibold text-[#54548C] text-xs">
               {card.typeOfLeave}
             </div>
             <div className=" text-gray-400">
-              <BsThreeDots className="font-bold text-xl" />
+              <BsThreeDots className="font-bold text-lg" />
             </div>
           </div>
           {/* 2 */}
-          <div className="flex p-2 justify-around mt-1 ">
+          <div className="flex p-2 justify-around -m-2 -p-1 ">
             <div className="flex-col px-2 mt-4">
-              <div className="text-black font-bold text-left text-lg py-0">
+              <div className="text-black font-bold text-left text-sm py-0">
                 {card.total}
               </div>
               <div
@@ -52,7 +52,7 @@ const PieCards = () => {
                 {card.title}
               </div>
             </div>
-            <div className="h-16 w-16 mb-3 font-bold text-lg">
+            <div className="h-14 w-14 mb-3 font-bold text-lg">
               <CircularProgressbar
                 value={(card.remaining / card.total) * 100}
                 text={`${card.remaining}`}
@@ -68,7 +68,7 @@ const PieCards = () => {
             </div>
           </div>
           {/* 3 */}
-          <div className={`${card.color}`}>
+          <div className={`${card.color} -mt-6`}>
             <BsFillArrowUpRightCircleFill className="h-4 w-4" />
           </div>
         </div>
