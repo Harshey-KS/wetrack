@@ -14,12 +14,17 @@ const tasks = [
 
 const Tasks = () => {
   return (
-    <div className="flex-col ml-20 mt-7">
-      {tasks.map((task) => (
-        <div className="bg-[#5932EA] m-4 rounded-xl py-2 px-4 hover:bg-[#54548C] cursor-pointer hover:font-bold text-white font-medium text-sm bottomShadow">
-          {task.title}
-        </div>
-      ))}
+    <div>
+      <h6 className="text-sm font-bold flex justify-center ml-20 text-[#547AFF] -mb-2 mt-4">
+        TODAY
+      </h6>
+      <div className="flex-col ml-20 ">
+        {tasks.map((task) => (
+          <div className="bg-[#5932EA] m-4 w-48 rounded-xl py-2 px-4  text-white font-medium text-sm bottomShadow">
+            {task.title}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

@@ -25,12 +25,12 @@ function Calendar({ className, classNames, showOutsideDays = true, ...props }) {
         table: "w-full border-collapse space-y-1",
         head_row: "flex",
         head_cell:
-          "text-muted-foreground rounded-md w-8 font-medium text-[0.8rem] -mb-1 -mt-2",
-        row: "flex w-full mt-2",
-        cell: "h-[1.2rem] w-8 text-center text-xs p-0 relative [&:has([aria-selected])]:bg-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
+          "text-muted-foreground rounded-md w-7 font-medium text-[0.8rem] -mb-1 -mt-2",
+        row: "flex w-full mt-1",
+        cell: "h-[1.22rem] w-7 text-center text-xs relative [&:has([aria-selected])]:bg-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
         day: cn(
           buttonVariants({ variant: "ghost" }),
-          "h-7 w-7 p-0 font-normal aria-selected:opacity-100"
+          "h-6 w-6 p-0 font-normal aria-selected:opacity-100"
         ),
         day_selected:
           "bg-[#5932EA] text-white font-bold hover:bg-[#BAE6FD] cursor-pointer hover:text-gray-600 hover:font-bold focus:bg-primary focus:text-primary-foreground",
