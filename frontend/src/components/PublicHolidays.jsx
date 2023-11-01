@@ -49,7 +49,7 @@ export default function PublicHolidays() {
         </div>
         <div className="flex-col mt-2 p-px">
           {publicHolidays.map((holiday) => (
-            <div className="flex flex-col px-3 border-b-[#C7C9CF] border-[1px] border-transparent hover:bg-zinc-200 hover:rounded-md hover:shadow hover:font-bold hover:w-full">
+            <div className="flex flex-col px-3 border-b-[#C7C9CF] border-[1px] border-transparent hover:bg-zinc-200 cursor-pointer hover:rounded-md hover:shadow hover:font-bold hover:w-full">
               <div className="flex gap-2 p-0 m-0.5">
                 <div>
                   <svg className="mt-1 h-3 w-3 svg-icon" viewBox="0 0 20 20">
