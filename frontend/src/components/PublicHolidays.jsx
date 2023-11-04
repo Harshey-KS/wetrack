@@ -24,8 +24,8 @@ const publicHolidays = [
 
 export default function PublicHolidays() {
   return (
-    <div className="flex flex-col-reverse w-full h-full mt-2 ml-1">
-      <div className="flex flex-col bg-white w-[16rem] h-[22rem] rounded-2xl  bigShadow  ">
+    <div className="flex flex-col-reverse w-full h-full mt-2 ml-5">
+      <div className="flex flex-col bg-white w-[15rem] h-[22rem] rounded-2xl  bigShadow  ">
         <div className="text-[var(--primary2)] font-[600] text-md mt-1 pt-1">
           Public Holidays
         </div>

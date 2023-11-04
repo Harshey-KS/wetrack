@@ -32,6 +32,7 @@ const Dashboard = () => {
           <BarChart chartData={userData} className="m-2" />
           <div className="flex">
             <Calendar
+              mode="single"
               selected={date}
               onSelect={setDate}
               className="bg-white h-fit w-fit rounded-2xl bigShadow mt-3"

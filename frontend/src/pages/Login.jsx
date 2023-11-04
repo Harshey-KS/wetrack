@@ -23,44 +23,12 @@ const Login = () => {
     }
   };
 
-  // const [color, changeColor]=useState["#3DA6FC"];
-
   return (
-    // <form className="border-2 border-sky-500" onSubmit={submitForm}>
-    //     <p className="form-title">Login</p>
-    //     <div className="input-container">
-    //         <label htmlFor="username">Email</label>
-    //         <input type="email" placeholder="xyz@spit.ac.in" name="username" id="username" onChange={(e)=>{setEmail(e.currentTarget.value)}} value={email} />
-    //     </div>
-    //     <div className="input-container">
-    //         <label htmlFor="password">Password</label>
-    //         <input type="password" placeholder="********" name="password" id="password" onChange={(e)=>{setPassword(e.currentTarget.value)}} value={password}/>
-    //     </div>
-    //     <div className="forgotDiv">
-    //         <a className="forgot">Forgot Password?</a>
-    //         {/* <div className='error'>{error}</div> */}
-    //     </div>
+    <form className="bg-white rounded-lg w-1/2  p-4" onSubmit={submitForm}>
+      <p className="text-lg font-semibold">Welcome to</p>
+      <p className="text-2xl font-extrabold text-[#547AFF] -mt-2">WeTrack</p>
 
-    //     <div className="submit-box">
-    //         {/* <div><button type="submit" className="submit" disabled={isLoading}>Log in</button></div> */}
-    //         <div style={{display: "flex", color:"#a19f9f", alignItems:"center"}}>
-    //             <hr style={{border: "1px solid #a19f9f", width: "125px", borderRadius: "3px", backgroundColor:"#a19f9f", height: "2px"}}/>
-    //             or
-    //             <hr style={{border: "1px solid #a19f9f", width: "125px", borderRadius: "3px", backgroundColor:"#a19f9f", height: "2px"}}/>
-    //         </div>
-    //     </div>
-    //     <div className="submit-box">
-    //         {/* <button className="submit google" disabled={isLoading} onClick={signInWithGoogle}><i className="fa-brands fa-google fa-1x"></i>   Log in with Google</button> */}
-    //     </div>
-    //     <div className="userType">
-    //         <div className={type=='Committee'?'committee yellow':'committee'} onClick={()=>{setType('Committee')}}>Committee</div>
-    //         <div className={type=='Faculty'?'faculty yellow':'faculty'} onClick={()=>{setType('Faculty')}}>Faculty</div>
-    //     </div>
-
-    // </form>
-    <form className="border-2 border-blue-500 p-4" onSubmit={submitForm}>
-      <p className="text-lg font-bold mb-4">Login</p>
-      <div className="mb-4">
+      <div className="m-4">
         <label htmlFor="username" className="block text-gray-700">
           Email
         </label>
@@ -73,7 +41,7 @@ const Login = () => {
             setEmail(e.currentTarget.value);
           }}
           value={email}
-          className="border border-gray-300 rounded-md w-full p-2 mt-1"
+          className="border border-gray-300 rounded-md w-1/2 p-2 "
         />
       </div>
       <div className="mb-4">
@@ -122,10 +90,6 @@ const Login = () => {
           <i className="fab fa-google fa-1x"></i> Log in with Google
         </button>
       </div>
-      {/* <div className="flex justify-between mb-4">
-        <div className={`committee ${type === 'Committee' ? 'yellow' : ''}`} onClick={()=>{setType('Committee')}}>Committee</div>
-        <div className={`faculty ${type === 'Faculty' ? 'yellow' : ''}`} onClick={()=>{setType('Faculty')}}>Faculty</div>
-    </div> */}
     </form>
   );
 };
