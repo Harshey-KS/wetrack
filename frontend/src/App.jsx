@@ -11,6 +11,7 @@ import Sidebar from "./components/SideBar";
 import Layout from "./components/Layout";
 import Department from "./pages/Department";
 import Teacher from "./pages/Teacher";
+import LeaveRecordHod from "./pages/LeaveRecordHod";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" exact element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/leaverecord" element={<LeaveRecord />} />
+          <Route path="/leaverecordhod" element={<LeaveRecordHod />} />
           <Route path="/timeline" element={<Timeline />} />
           <Route path="/portion" element={<Portion />} />
           <Route path="/profile" element={<Profile />} />
