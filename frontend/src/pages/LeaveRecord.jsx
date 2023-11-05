@@ -8,6 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "../components/ui/table";
+
 import {
   Dialog,
   DialogContent,
@@ -20,6 +21,7 @@ import {
 import Heading from "../components/Heading";
 import { Button } from "../components/ui/button";
 import { DatePickerDemo } from "../components/DatePicker";
+import DropdownComponent from "../components/Dropdown";
 
 const LeaveRecord = () => {
   return (
@@ -99,7 +101,7 @@ const LeaveRecord = () => {
       <Dialog>
         <DialogTrigger>
           {" "}
-          <Button className="bg-[#5932EA] hover:bg-zinc-400 hover:text-black rounded-xl font-bold">
+          <Button className="bg-[#5932EA] hover:bg-zinc-400 hover:text-black rounded-xl font-bold shadowBig">
             Apply for Leave
           </Button>
         </DialogTrigger>
@@ -129,6 +131,8 @@ const LeaveRecord = () => {
                 placeholder="Type Here"
               />
             </div>
+            <DropdownComponent />
+
             <Button className="bg-[#5932EA] rounded-xl font-bold text-md h-8 w-1/5 hover:bg-gray-300 hover:text-gray-600 duration-300 ">
               SUBMIT
             </Button>
