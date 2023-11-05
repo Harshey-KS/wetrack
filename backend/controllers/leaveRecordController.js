@@ -15,7 +15,7 @@ exports.createLeaveRecord = async (req, res) => {
       { department, type: "HOD" },
       { $push: { requests: savedLeaveRecord?._id } }
     );
-    // sendMail(HOD.email, teacher?.name, req.body.type);
+    sendMail(HOD.email, teacher?.name, savedLeaveRecord?.leaveType);
     res.status(201).json(savedLeaveRecord);
   } catch (error) {
     res.status(500).json({ error: "Could not create leave record" });
