@@ -28,6 +28,4 @@ const sendMail = async (email, teacher, type) => {
   });
 };
 
-sendMail("hardikg2907@gmail.com", "sdsds", "sdsdsd");
-
 module.exports = sendMail;

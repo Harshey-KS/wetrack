@@ -51,6 +51,12 @@ const LeaveRecord = () => {
     if (res?.data) {
       await fetchData();
       setModalOpen(false);
+      setFormData({
+        teacherId: user?.id,
+        dateOfLeave: new Date(),
+        leaveType: "",
+        reason: "",
+      });
     }
   };
 

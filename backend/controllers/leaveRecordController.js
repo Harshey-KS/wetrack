@@ -25,9 +25,10 @@ exports.createLeaveRecord = async (req, res) => {
 // Get all leave records
 exports.getAllLeaveRecords = async (req, res) => {
   try {
-    const user = await Teacher.findById(req.params.teacherId).populate(
-      "requests"
-    );
+    const user = await Teacher.findById(req.params.teacherId).populate({
+      path: "requests",
+      populate: "teacherId",
+    });
     let leaveRecords = [];
     if (user?.type === "Teacher") {
       leaveRecords = await LeaveRecord.find({

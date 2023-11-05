@@ -2,31 +2,30 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { BsFillArrowUpRightCircleFill, BsThreeDots } from "react-icons/bs";
 
-const pieCards = [
-  {
-    remaining: 3,
-    typeOfLeave: "Monthly Leaves Remaining",
-    title: "Total Monthly Leaves",
-    color: "text-[#FF9085]",
-    total: 5,
-  },
-  {
-    remaining: 10,
-    typeOfLeave: "Sick Leaves Remaining",
-    title: "Total Sick Leaves",
-    color: "text-[#FFC444]",
-    total: 25,
-  },
-  {
-    remaining: 23,
-    typeOfLeave: "Annual Leaves Remaining",
-    title: "Total Annual Leaves",
-    color: "text-[#57D9AD]",
-    total: 30,
-  },
-];
-
-const PieCards = () => {
+const PieCards = ({ leaves }) => {
+  const pieCards = [
+    {
+      remaining: leaves?.casual,
+      typeOfLeave: "Casual Leaves Remaining",
+      title: "Total Casual Leaves",
+      color: "text-[#FF9085]",
+      total: 5,
+    },
+    {
+      remaining: leaves?.sick,
+      typeOfLeave: "Sick Leaves Remaining",
+      title: "Total Sick Leaves",
+      color: "text-[#FFC444]",
+      total: 10,
+    },
+    {
+      remaining: leaves?.annual,
+      typeOfLeave: "Annual Leaves Remaining",
+      title: "Total Annual Leaves",
+      color: "text-[#57D9AD]",
+      total: 30,
+    },
+  ];
   return (
     <div className="flex w-full justify-around -ml-4 -mr-2 ">
       {pieCards?.map((card) => (

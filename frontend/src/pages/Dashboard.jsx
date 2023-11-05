@@ -88,7 +88,13 @@ const Dashboard = () => {
   return (
     <div className="h-full w-full p-2 flex-col ml-2">
       {/* 1 */}
-      <PieCards />
+      <PieCards
+        leaves={{
+          sick: leaveRecords?.filter((e) => e.leaveType === "Sick").length,
+          annual: leaveRecords?.length,
+          casual: leaveRecords?.filter((e) => e.leaveType === "Casual").length,
+        }}
+      />
       {/* 2 */}
       <div className="flex">
         <div className="flex-col m-2 ml-8">
