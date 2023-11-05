@@ -8,8 +8,8 @@ import { Button } from "./ui/button";
 import { Calendar } from "./ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 
-export function DatePickerDemo() {
-  const [date, setDate] = useState(new Date());
+export function DatePickerDemo({ date, setFormData }) {
+  // const [date, setDate] = useState(new Date());
 
   return (
     <Popover>
@@ -29,7 +29,7 @@ export function DatePickerDemo() {
         <Calendar
           mode="single"
           selected={date}
-          onSelect={setDate}
+          onSelect={(e) => setFormData((prev) => ({ ...prev, dateOfLeave: e }))}
           initialFocus
         />
       </PopoverContent>
