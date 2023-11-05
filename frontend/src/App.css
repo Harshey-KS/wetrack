@@ -126,12 +126,3 @@ box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px
   .shadowLittle{
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     }
-
-.active{
-  background-color: #BCE6FD;
-border-radius: 0.95rem;
-color: #5C5F65;
-box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
-
-
-}

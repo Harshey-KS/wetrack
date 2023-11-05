@@ -9,25 +9,14 @@ import Portion from "./pages/Portion";
 import Profile from "./pages/Profile";
 import Sidebar from "./components/SideBar";
 import Layout from "./components/Layout";
+import { useAuthContext } from "./context/AuthContext";
 import Department from "./pages/Department";
 import Teacher from "./pages/Teacher";
 import LeaveRecordHod from "./pages/LeaveRecordHod";
 
 function App() {
   const [count, setCount] = useState(0);
-  console.log(window.location);
-  let Component;
-  switch (window.location.pathname) {
-    case "/":
-      Component = App;
-      break;
-    case "/dashboard":
-      Component = Dashboard;
-      break;
-    case "/leaverecord":
-      Component = LeaveRecord;
-      break;
-  }
+  const { user } = useAuthContext();
 
   return (
     <BrowserRouter>
