@@ -1,20 +1,20 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const leaveRecordController = require('../controllers/leaveRecordController');
+const leaveRecordController = require("../controllers/leaveRecordController");
 
 // Create a new leave record
-router.post('/', leaveRecordController.createLeaveRecord);
+router.post("/", leaveRecordController.createLeaveRecord);
 
 // Get all leave records
-router.get('/', leaveRecordController.getAllLeaveRecords);
+router.get("/:teacherId", leaveRecordController.getAllLeaveRecords);
 
 // Get a leave record by ID
-router.get('/:id', leaveRecordController.getLeaveRecordById);
+router.get("/:id", leaveRecordController.getLeaveRecordById);
 
 // Update a leave record by ID
-router.put('/:id', leaveRecordController.updateLeaveRecordById);
+router.put("/:id", leaveRecordController.updateLeaveRecordById);
 
 // Delete a leave record by ID
-router.delete('/:id', leaveRecordController.deleteLeaveRecordById);
+router.delete("/:id", leaveRecordController.deleteLeaveRecordById);
 
 module.exports = router;

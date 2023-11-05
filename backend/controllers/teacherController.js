@@ -44,14 +44,14 @@ exports.loginTeacher = async (req, res) => {
       "your_secret_key",
       { expiresIn: "1h" }
     ); // Change 'your_secret_key' to a more secure secret key
-    res
-      .status(200)
-      .json({
-        name: teacher.name,
-        email: teacher.email,
-        type: teacher.type,
-        token: token,
-      });
+    res.status(200).json({
+      name: teacher.name,
+      email: teacher.email,
+      type: teacher.type,
+      token: token,
+      id: teacher._id,
+      department: teacher.department,
+    });
   } catch (error) {
     res.status(500).json({ error: "Internal Server Error" });
   }

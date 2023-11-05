@@ -1,4 +1,7 @@
+import { useAuthContext } from "../context/AuthContext";
+
 export default function Header() {
+  const { user } = useAuthContext();
   return (
     <div className="flex m-0 pt-2 pb-0.5 shadow-lg shadow-gray-300 text-[#5C5F65]">
       <div className="flex justify-between w-full">
@@ -31,7 +34,7 @@ export default function Header() {
               ></path>
             </svg>
           </div>
-          <div className="font-semibold">Reeta Koshy</div>
+          <div className="font-semibold">{user?.name}</div>
         </div>
       </div>
     </div>

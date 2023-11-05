@@ -24,8 +24,13 @@ function App() {
         <Routes>
           <Route path="/" exact element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/leaverecord" element={<LeaveRecord />} />
-          <Route path="/leaverecordhod" element={<LeaveRecordHod />} />
+          <Route
+            path="/leaverecord"
+            element={
+              user?.type === "Teacher" ? <LeaveRecord /> : <LeaveRecordHod />
+            }
+          />
+          {/* <Route path="/leaverecordhod" element={<LeaveRecordHod />} /> */}
           <Route path="/timeline" element={<Timeline />} />
           <Route path="/portion" element={<Portion />} />
           <Route path="/profile" element={<Profile />} />
