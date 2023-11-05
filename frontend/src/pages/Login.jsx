@@ -21,7 +21,7 @@ const Login = () => {
     e.preventDefault();
     console.log(email, password);
     if (await login(email, password)) {
-      navigate("/permissions");
+      navigate("/dashboard");
     }
   };
 
@@ -33,7 +33,7 @@ const Login = () => {
         className="rounded-full h-96 w-96 mt-12 ml-16 mb-4 "
       />
       <form
-        className="bg-white rounded-xl w-1/2 m-2 ml-60 mt-10 -ml-6 h-4/5 pt-2 overflow-hidden px-2 shadowBig"
+        className="bg-white rounded-xl w-1/2 m-2 mt-10 -ml-6  h-4/5 pt-2 overflow-hidden px-2 shadowBig"
         onSubmit={submitForm}
       >
         <p className="text-lg font-semibold">Welcome To</p>
@@ -114,7 +114,7 @@ const Login = () => {
               // console.log(user);
               if (user) {
                 if (await login(user.email, user.password)) {
-                  navigate("/permissions");
+                  navigate("/dashboard");
                 }
               }
             }}

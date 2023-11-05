@@ -13,7 +13,7 @@ export const useLogin = () => {
     setIsLoading(true);
     setError(null);
 
-    console.log(email, password); //post request to login
+    // console.log(email, password); //post request to login
     const response = await axios
       .post("teachers/login", {
         email,
