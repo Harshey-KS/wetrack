@@ -17,8 +17,9 @@ const Login = () => {
 
   const submitForm = async (e) => {
     e.preventDefault();
-    console.log(email, password);
+    // console.log(email, password);
     if (await login(email, password)) {
+      console.log("helo");
       navigate("/dashboard");
     }
   };
@@ -87,7 +88,7 @@ const Login = () => {
             // console.log(user);
             if (user) {
               if (await login(user.email, user.password)) {
-                navigate("/permissions");
+                navigate("/dashboard");
               }
             }
           }}
