@@ -26,6 +26,8 @@ import { useAuthContext } from "../context/AuthContext";
 import axios from "axios";
 import { format } from "date-fns";
 
+import DropdownComponent from "../components/Dropdown";
+
 const LeaveRecord = () => {
   const { user } = useAuthContext();
   // console.log(user);
@@ -142,6 +144,7 @@ const LeaveRecord = () => {
                 placeholder="Type Here"
               />
             </div>
+            <DropdownComponent />
             <Button className="bg-[#5932EA] rounded-xl font-bold text-md h-8 w-1/5 hover:bg-gray-300 hover:text-gray-600 duration-300 ">
               SUBMIT
             </Button>
