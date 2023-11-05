@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Table,
   TableBody,
@@ -20,8 +20,25 @@ import {
 import Heading from "../components/Heading";
 import { Button } from "../components/ui/button";
 import { DatePickerDemo } from "../components/DatePicker";
+import axios from "axios";
+import { useAuthContext } from "../context/AuthContext";
 
 const LeaveRecordHod = () => {
+  const [leaveRecords, setLeaveRecords] = useState([]);
+  const { user } = useAuthContext();
+
+  const fetchData = async () => {
+    const res = await axios.get(`leave-records/${user?.id}`);
+    if (res?.data) {
+      setLeaveRecords(res?.data);
+    }
+  };
+
+  useEffect(() => {
+    if (user?.id) fetchData();
+  }, [user]);
+  console.log(leaveRecords);
+
   return (
     <div className="flex justify-center items-center flex-col">
       <Heading title="Leave Record" />
@@ -47,65 +64,27 @@ const LeaveRecordHod = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          <TableRow className="border border-b-gray-400 shadowLittle hover:bg-zinc-300/90 transition-300">
-            <TableCell className="text-center font-medium">
-              Reeta Koshy
-            </TableCell>
-            <TableCell className="text-center font-medium">
-              13th August 2023
-            </TableCell>
-            <TableCell className="text-center font-medium">
-              16th August 2023
-            </TableCell>
-            <TableCell className="text-center font-medium">
-              Sick Leave
-            </TableCell>
-            <TableCell className="flex justify-center ">
-              <div className="bg-yellow-400 text-semibold text-white rounded-lg w-2/3 h-[30px] flex items-center justify-center font-semibold">
-                Pending
-              </div>
-            </TableCell>
-          </TableRow>
-          {/* 2 */}
-          <TableRow className="border border-b-gray-400 shadowLittle hover:bg-zinc-300/90 transition-300">
-            <TableCell className="text-center font-medium">
-              Reeta Koshy
-            </TableCell>
-            <TableCell className="text-center font-medium">
-              13th August 2023
-            </TableCell>
-            <TableCell className="text-center font-medium">
-              16th August 2023
-            </TableCell>
-            <TableCell className="text-center font-medium">
-              Sick Leave
-            </TableCell>
-            <TableCell className="flex justify-center ">
-              <div className="bg-[#37E534] text-semibold px-6 text-white rounded-lg w-2/3 h-[30px] flex items-center justify-center font-semibold">
-                Approved
-              </div>
-            </TableCell>
-          </TableRow>
-          {/* 3 */}
-          <TableRow className="border border-b-gray-400 shadowLittle hover:bg-zinc-300/90 transition-300">
-            <TableCell className="text-center font-medium">
-              Reeta Koshy
-            </TableCell>
-            <TableCell className="text-center font-medium">
-              13th August 2023
-            </TableCell>
-            <TableCell className="text-center font-medium">
-              16th August 2023
-            </TableCell>
-            <TableCell className="text-center font-medium">
-              Sick Leave
-            </TableCell>
-            <TableCell className="flex justify-center ">
-              <div className="bg-[#FD3535] text-semibold text-white rounded-lg w-2/3 h-[30px] flex items-center justify-center font-semibold">
-                Rejected
-              </div>
-            </TableCell>
-          </TableRow>
+          {leaveRecords?.map((leave) => (
+            <TableRow className="border border-b-gray-400 shadowLittle hover:bg-zinc-300/90 transition-300">
+              <TableCell className="text-center font-medium">
+                Reeta Koshy
+              </TableCell>
+              <TableCell className="text-center font-medium">
+                13th August 2023
+              </TableCell>
+              <TableCell className="text-center font-medium">
+                16th August 2023
+              </TableCell>
+              <TableCell className="text-center font-medium">
+                Sick Leave
+              </TableCell>
+              <TableCell className="flex justify-center ">
+                <div className="bg-yellow-400 text-semibold text-white rounded-lg w-2/3 h-[30px] flex items-center justify-center font-semibold">
+                  Pending
+                </div>
+              </TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
       {/* <Dialog>

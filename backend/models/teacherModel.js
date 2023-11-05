@@ -43,6 +43,12 @@ const teacherSchema = new mongoose.Schema({
   password: String,
   contact: String,
   classes: [classSchema],
+  requests: [
+    {
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: "LeaveRequest",
+    },
+  ],
 });
 
 const Teacher = mongoose.model("Teacher", teacherSchema);

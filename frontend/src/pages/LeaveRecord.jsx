@@ -80,7 +80,10 @@ const LeaveRecord = () => {
         </TableHeader>
         <TableBody>
           {leaveRecords?.map((leave) => (
-            <TableRow className="border border-b-gray-400 shadowLittle hover:bg-zinc-300/90 transition-300">
+            <TableRow
+              key={leave._id}
+              className="border border-b-gray-400 shadowLittle hover:bg-zinc-300/90 transition-300"
+            >
               <TableCell className="text-center font-medium">
                 {format(new Date(leave.createdAt), "dd-MM-yyyy")}
               </TableCell>
