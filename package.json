@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "react-calendar": "^4.6.1",
-    "react-google-charts": "^4.0.1",
-    "react-scripts": "^5.0.1"
-  }
-}

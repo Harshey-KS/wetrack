@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const examTimelineSchema = new mongoose.Schema({
   examDate: {
@@ -12,11 +12,11 @@ const examTimelineSchema = new mongoose.Schema({
 const classSchema = new mongoose.Schema({
   className: {
     type: String,
-    required: true,
+    // required: true,
   },
   portionCovered: {
     type: String,
-    default: '',
+    default: "",
   },
   examTimeline: [examTimelineSchema], // Add the examTimeline field
 });
@@ -33,18 +33,18 @@ const teacherSchema = new mongoose.Schema({
   },
   type: {
     type: String,
-    enum: ['Teacher', 'HOD'], // Enum to specify the type
-    default: 'Teacher',// Default to 'Teacher'
+    enum: ["Teacher", "HOD"], // Enum to specify the type
+    default: "Teacher", // Default to 'Teacher'
     required: true,
-    },
-    department: {
-      type: String,
-    },
-    password: String,
+  },
+  department: {
+    type: String,
+  },
+  password: String,
   contact: String,
   classes: [classSchema],
 });
 
-const Teacher = mongoose.model('Teacher', teacherSchema);
+const Teacher = mongoose.model("Teacher", teacherSchema);
 
 module.exports = Teacher;

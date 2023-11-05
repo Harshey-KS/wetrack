@@ -13,24 +13,27 @@ export const useLogin = () => {
     setIsLoading(true);
     setError(null);
 
-    console.log(email,password); //post request to login
-    const response = await axios.post("teachers/login", {
-      email,
-      password,
-    }).catch((error)=>{setIsLoading(false);
+    console.log(email, password); //post request to login
+    const response = await axios
+      .post("teachers/login", {
+        email,
+        password,
+      })
+      .catch((error) => {
+        setIsLoading(false);
         console.log(error.response.data);
         setError(error.response.data.error || error.response.data);
         setTimeout(() => {
           setError(null);
-        }, 2000);})
+        }, 2000);
+      });
     const json = await response.data;
-    console.log(json);
+    // console.log(json);
     localStorage.setItem("profile", JSON.stringify(json));
     dispatch({ type: "LOGIN", payload: json });
 
     setIsLoading(false);
     return true;
-
   };
 
   return { login, isLoading, error };
@@ -54,7 +57,7 @@ export const useRegister = () => {
     });
     const json = await response.data;
     console.log(json);
-    
+
     localStorage.setItem("profile", JSON.stringify(json));
     dispatch({ type: "LOGIN", payload: json });
 
