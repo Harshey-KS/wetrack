@@ -5,7 +5,7 @@ export default function Sidebar() {
   const { logout } = useLogout();
   return (
     // <div className="flex font-sans">
-    <div className=" h-screen p-3 bg-[#547AFF] shadow w-60 rounded-r-2xl">
+    <div className="h-screen p-3 bg-[#547AFF] shadow w-60 rounded-r-2xl">
       <div className="flex flex-col">
         <div>
           <div className="flex items-center logoShadow ">

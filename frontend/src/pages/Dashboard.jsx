@@ -12,6 +12,7 @@ import { group } from "../helperFunctions";
 
 const Dashboard = () => {
   const [date, setDate] = useState(new Date());
+  const [teacher, setTeacher] = useState([]);
   const [leaveRecords, setLeaveRecords] = useState();
   const { user } = useAuthContext();
   const [chartData, setChartData] = useState([]);
@@ -42,10 +43,12 @@ const Dashboard = () => {
     ],
   });
   const fetchData = async () => {
-    const res = await axios.get(`leave-records/${user?.id}`);
+    let res = await axios.get(`leave-records/${user?.id}`);
     if (res?.data) {
       setLeaveRecords(res?.data);
     }
+    res = await axios.get(`teachers/${user?.id}`);
+    setTeacher(res?.data);
   };
 
   useEffect(() => {
@@ -106,7 +109,7 @@ const Dashboard = () => {
               onSelect={setDate}
               className="bg-white h-fit w-fit rounded-2xl bigShadow mt-3"
             />
-            <Tasks />
+            <Tasks portion={teacher?.classes} />
           </div>
         </div>
         <PublicHolidays />

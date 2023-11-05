@@ -61,7 +61,6 @@ const LeaveRecordHod = () => {
     <div className="flex justify-center items-center flex-col">
       <Heading title="Leave Record" />
       <Table className="bg-white rounded-2xl w-4/5 mt-4 mx-auto shadowBig mb-6 overflow-hidden">
-        <TableCaption> </TableCaption>
         <TableHeader className="bg-[#5932EA] ">
           <TableRow className="shadow-lg shadow-indigo-500/40 border-none">
             <TableHead className=" text-white text-center border-0">
@@ -82,7 +81,7 @@ const LeaveRecordHod = () => {
             <TableHead className="text-white text-left">View</TableHead>
           </TableRow>
         </TableHeader>
-        <TableBody className=" overflow-y-scroll h-64">
+        <TableBody className="">
           {leaveRecords?.map((leave) => (
             <TableRow
               key={leave._id}
@@ -101,7 +100,15 @@ const LeaveRecordHod = () => {
                 {leave.leaveType} Leave
               </TableCell>
               <TableCell className="flex justify-center ">
-                <div className="bg-yellow-400 text-semibold text-white rounded-lg w-2/3 h-[30px] flex items-center justify-center font-semibold">
+                <div
+                  className={
+                    leave.status === "Approved"
+                      ? "bg-green-500 px-4 text-semibold text-white rounded-lg w-2/3 h-[30px] flex items-center justify-center font-semibold"
+                      : leave.status === "Denied"
+                      ? "bg-red-500 px-4 text-semibold text-white rounded-lg w-2/3 h-[30px] flex items-center justify-center font-semibold"
+                      : "bg-yellow-400 px-4 text-semibold text-white rounded-lg w-2/3 h-[30px] flex items-center justify-center font-semibold"
+                  }
+                >
                   {leave.status}
                 </div>
               </TableCell>

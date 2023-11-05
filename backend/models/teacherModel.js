@@ -15,8 +15,8 @@ const classSchema = new mongoose.Schema({
     // required: true,
   },
   portionCovered: {
-    type: String,
-    default: "",
+    type: [String],
+    default: [],
   },
   examTimeline: [examTimelineSchema], // Add the examTimeline field
 });

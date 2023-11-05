@@ -7,13 +7,13 @@ const Layout = ({ children }) => {
   const { user } = useAuthContext();
   return (
     <React.Fragment>
-      <div className="flex bg-[#E8F7FF] w-screen h-screen">
+      <div className="relative flex bg-[#E8F7FF] w-screen h-screen">
         {user && <Sidebar />}
         <div className="flex flex-col pt-0 w-full">
           {/* <div> */}
           <Header />
           {/* </div> */}
-          <div className="w-full h-full p-2">{children}</div>
+          <div className="p-2  w-full h-full overflow-auto">{children}</div>
         </div>
       </div>
     </React.Fragment>

@@ -106,7 +106,15 @@ const LeaveRecord = () => {
                 {leave.leaveType}
               </TableCell>
               <TableCell className="flex justify-center ">
-                <div className="bg-yellow-400 text-semibold text-white rounded-lg w-2/3 h-[30px] flex items-center justify-center font-semibold">
+                <div
+                  className={
+                    leave.status === "Approved"
+                      ? "bg-green-500 px-4 text-semibold text-white rounded-lg w-2/3 h-[30px] flex items-center justify-center font-semibold"
+                      : leave.status === "Denied"
+                      ? "bg-red-500 px-4 text-semibold text-white rounded-lg w-2/3 h-[30px] flex items-center justify-center font-semibold"
+                      : "bg-yellow-400 px-4 text-semibold text-white rounded-lg w-2/3 h-[30px] flex items-center justify-center font-semibold"
+                  }
+                >
                   {leave.status}
                 </div>
               </TableCell>
