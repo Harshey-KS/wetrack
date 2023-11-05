@@ -10,6 +10,7 @@ import {
 } from "../components/ui/table";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogHeader,
@@ -34,6 +35,7 @@ const LeaveRecord = () => {
     reason: "",
   });
   const [leaveRecords, setLeaveRecords] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const fetchData = async () => {
     const res = await axios.get(`leave-records/${user?.id}`);
@@ -45,6 +47,7 @@ const LeaveRecord = () => {
     const res = await axios.post("leave-records", formData);
     if (res?.data) {
       await fetchData();
+      setModalOpen(false);
     }
   };
 
@@ -82,7 +85,7 @@ const LeaveRecord = () => {
                 {format(new Date(leave.createdAt), "dd-MM-yyyy")}
               </TableCell>
               <TableCell className="text-center font-medium">
-                {leave.dateOfLeave}
+                {format(new Date(leave.dateOfLeave), "dd-MM-yyyy")}
               </TableCell>
               <TableCell className="text-center font-medium">
                 {leave.reason}
@@ -99,7 +102,7 @@ const LeaveRecord = () => {
           ))}
         </TableBody>
       </Table>
-      <Dialog>
+      <Dialog open={modalOpen} onOpenChange={setModalOpen}>
         <DialogTrigger>
           {" "}
           <Button className="bg-[#5932EA] hover:bg-zinc-400 hover:text-black rounded-xl font-bold">
