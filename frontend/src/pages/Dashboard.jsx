@@ -1,19 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PublicHolidays from "../components/PublicHolidays";
 import { Calendar } from "../components/ui/calendar";
 import PieCards from "../components/PieCards";
 import BarChart from "../components/BarChart";
 import { UserData } from "../Data";
 import Tasks from "../components/Tasks";
+import { useAuthContext } from "../context/AuthContext";
+import axios from "axios";
+import format from "date-fns/format";
+import { group } from "../helperFunctions";
 
 const Dashboard = () => {
   const [date, setDate] = useState(new Date());
-  const [userData, setUserData] = useState({
-    labels: UserData.map((data) => data.month),
+  const [leaveRecords, setLeaveRecords] = useState();
+  const { user } = useAuthContext();
+  const [chartData, setChartData] = useState([]);
+  const [barData, setBarData] = useState({
+    labels: [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ],
     datasets: [
       {
         label: "Leaves Taken",
-        data: UserData.map((data) => data.leavesTakenBar),
+        data: chartData?.map((data) => data.leaves),
         backgroundColor: ["#5932EA"],
         hoverBackgroundColor: ["#BAE6FD"],
         barPercentage: 1,
@@ -21,6 +41,49 @@ const Dashboard = () => {
       },
     ],
   });
+  const fetchData = async () => {
+    const res = await axios.get(`leave-records/${user?.id}`);
+    if (res?.data) {
+      setLeaveRecords(res?.data);
+    }
+  };
+
+  useEffect(() => {
+    if (user?.id) fetchData();
+  }, [user]);
+
+  useEffect(() => {
+    const entries = group(leaveRecords || [], (item) =>
+      format(new Date(item?.dateOfLeave), "MMM")
+    );
+    const e = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ]?.map((month) => ({
+      leaves: entries[month] ? entries[month]?.length : 0,
+      month,
+    }));
+
+    setBarData((prev) => ({
+      ...prev,
+      datasets: [
+        {
+          ...prev.datasets[0],
+          data: e?.map((data) => data?.leaves),
+        },
+      ],
+    }));
+  }, [leaveRecords]);
 
   return (
     <div className="h-full w-full p-2 flex-col ml-2">
@@ -29,7 +92,7 @@ const Dashboard = () => {
       {/* 2 */}
       <div className="flex">
         <div className="flex-col m-2 ml-8">
-          <BarChart chartData={userData} className="m-2" />
+          <BarChart chartData={barData} className="m-2" />
           <div className="flex">
             <Calendar
               mode="single"
