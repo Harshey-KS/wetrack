@@ -8,6 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "../components/ui/table";
+
 import {
   Dialog,
   DialogClose,
@@ -24,6 +25,8 @@ import { DatePickerDemo } from "../components/DatePicker";
 import { useAuthContext } from "../context/AuthContext";
 import axios from "axios";
 import { format } from "date-fns";
+
+import DropdownComponent from "../components/Dropdown";
 
 const LeaveRecord = () => {
   const { user } = useAuthContext();
@@ -108,7 +111,7 @@ const LeaveRecord = () => {
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
         <DialogTrigger>
           {" "}
-          <Button className="bg-[#5932EA] hover:bg-zinc-400 hover:text-black rounded-xl font-bold">
+          <Button className="bg-[#5932EA] hover:bg-zinc-400 hover:text-black rounded-xl font-bold shadowBig">
             Apply for Leave
           </Button>
         </DialogTrigger>
@@ -144,10 +147,8 @@ const LeaveRecord = () => {
                 placeholder="Type Here"
               />
             </div>
-            <Button
-              onClick={() => submitLeaveRecord()}
-              className="bg-[#5932EA] rounded-xl font-bold text-md h-8 w-1/5 hover:bg-gray-300 hover:text-gray-600 duration-300 "
-            >
+            <DropdownComponent />
+            <Button className="bg-[#5932EA] rounded-xl font-bold text-md h-8 w-1/5 hover:bg-gray-300 hover:text-gray-600 duration-300 ">
               SUBMIT
             </Button>
           </DialogDescription>
