@@ -34,7 +34,7 @@ const LeaveRecord = () => {
   const [formData, setFormData] = useState({
     teacherId: user?.id,
     dateOfLeave: new Date(),
-    leaveType: "Other",
+    leaveType: "",
     reason: "",
   });
   const [leaveRecords, setLeaveRecords] = useState([]);
@@ -83,7 +83,10 @@ const LeaveRecord = () => {
         </TableHeader>
         <TableBody>
           {leaveRecords?.map((leave) => (
-            <TableRow className="border border-b-gray-400 shadowLittle hover:bg-zinc-300/90 transition-300">
+            <TableRow
+              key={leave._id}
+              className="border border-b-gray-400 shadowLittle hover:bg-zinc-300/90 transition-300"
+            >
               <TableCell className="text-center font-medium">
                 {format(new Date(leave.createdAt), "dd-MM-yyyy")}
               </TableCell>
@@ -144,8 +147,40 @@ const LeaveRecord = () => {
                 placeholder="Type Here"
               />
             </div>
-            <DropdownComponent />
-            <Button className="bg-[#5932EA] rounded-xl font-bold text-md h-8 w-1/5 hover:bg-gray-300 hover:text-gray-600 duration-300 ">
+            <div className="p-3 flex gap-16 justify-around items-center">
+              <div>
+                <label
+                  htmlFor="leaveType"
+                  className="text-[16px]  text-gray-500 font-bold w-24 h-2 mr-8"
+                >
+                  Select Leave Type:
+                </label>
+              </div>
+              <div>
+                <select
+                  id="leaveType"
+                  value={formData?.leaveType || "Leave Type"}
+                  onChange={(e) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      leaveType: e.target.value,
+                    }))
+                  }
+                  className="  p-1 border h-8 mr-16  border-zinc-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                >
+                  <option value="Leave Type" disabled hidden>
+                    Leave Type
+                  </option>
+                  <option value="Sick">Sick Leave</option>
+                  <option value="Casual">Casual Leave</option>
+                  <option value="Other">Other Leave</option>
+                </select>
+              </div>
+            </div>
+            <Button
+              onClick={() => submitLeaveRecord()}
+              className="bg-[#5932EA] rounded-xl font-bold text-md h-8 w-1/5 hover:bg-gray-300 hover:text-gray-600 duration-300 "
+            >
               SUBMIT
             </Button>
           </DialogDescription>
