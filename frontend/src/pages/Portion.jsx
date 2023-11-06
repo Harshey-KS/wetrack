@@ -4,21 +4,6 @@ import Cards from "../components/Cards";
 import axios from "axios";
 import { useAuthContext } from "../context/AuthContext";
 
-const cards = [
-  {
-    className: "TE COMPS A",
-    portionCovered: ["HTML", "CSS "],
-  },
-  {
-    className: "SE EXTC F",
-    portionCovered: ["CSS"],
-  },
-  {
-    className: "FE CSE E",
-    portionCovered: ["JavaScript"],
-  },
-];
-
 const Portion = () => {
   const { user } = useAuthContext();
   const [teacher, setTeacher] = useState([]);
@@ -30,8 +15,8 @@ const Portion = () => {
     }
   };
 
-  const updatePortion = async () => {
-    const res = await axios.put(`teachers/${user.id}`, teacher);
+  const updatePortion = async (classes) => {
+    const res = await axios.put(`teachers/${user.id}`, { ...teacher, classes });
     if (res?.data) {
       await fetchData();
     }
@@ -44,7 +29,7 @@ const Portion = () => {
     <div className="flex flex-col">
       <Heading title={"Portion"} />
       <Cards
-        cards={cards}
+        cards={teacher?.classes}
         updatePortion={updatePortion}
         setTeacher={setTeacher}
       />

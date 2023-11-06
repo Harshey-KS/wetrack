@@ -69,7 +69,7 @@ export default function Sidebar() {
               </Link>
             </li>
             <li className="rounded-sm font-semibold text-white group hoverBox">
-              <Link to="/timeline">
+              {/* <Link to="/timeline">
                 <a
                   href="/timelin"
                   className="flex items-center p-2 space-x-3 rounded-md"
@@ -85,7 +85,7 @@ export default function Sidebar() {
                   </svg>
                   <span>Timeline</span>
                 </a>
-              </Link>
+              </Link> */}
             </li>
             <li className="rounded-sm text-white font-semibold group hoverBox">
               <Link to="/portion">

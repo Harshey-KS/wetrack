@@ -17,7 +17,7 @@ const Tasks = ({ portion }) => {
   return (
     <div>
       <h6 className="text-sm font-bold flex justify-center ml-20 text-[#547AFF] -mb-2 mt-4">
-        TODAY
+        CLASSES
       </h6>
       <div className="flex-col ml-20 ">
         {portion?.map((task) => (
