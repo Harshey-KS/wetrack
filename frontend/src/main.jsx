@@ -5,9 +5,9 @@ import "./index.css";
 import axios from "axios";
 import { AuthContextProvider } from "./context/AuthContext.jsx";
 import Sidebar from "./components/SideBar.jsx";
-import { BrowserRouter} from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
-axios.defaults.baseURL = "http://localhost:5000/api/";
+axios.defaults.baseURL = "https://we-track-api.vercel.app/";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -16,4 +16,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <App />
     </AuthContextProvider>
   </React.StrictMode>
-  );
+);
