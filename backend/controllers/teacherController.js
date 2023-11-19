@@ -29,16 +29,17 @@ exports.registerTeacher = async (req, res) => {
 //Login Teacher
 exports.loginTeacher = async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { email, password,isOauth } = req.body;
     console.log(email, password);
     const teacher = await Teacher.findOne({ email }); //searches teacher by this email
     if (!teacher) {
       return res.status(404).json({ error: "Teacher not found" });
     }
-    const validPassword = await bcrypt.compare(password, teacher.password);
+    if(!isOauth)
+    {const validPassword = await bcrypt.compare(password, teacher.password);
     if (!validPassword) {
       return res.status(400).json({ error: "Invalid password" });
-    }
+    }}
     const token = jwt.sign(
       { email: teacher.email, type: teacher.type },
       "your_secret_key",

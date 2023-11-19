@@ -9,7 +9,7 @@ export const useLogin = () => {
   const { dispatch } = useAuthContext();
   const navigate = useNavigate();
 
-  const login = async (email, password) => {
+  const login = async (email, password, isOauth) => {
     setIsLoading(true);
     setError(null);
 
@@ -18,6 +18,7 @@ export const useLogin = () => {
       .post("teachers/login", {
         email,
         password,
+        isOauth
       })
       .catch((error) => {
         setIsLoading(false);

@@ -113,7 +113,7 @@ const Login = () => {
               const user = await signIn();
               // console.log(user);
               if (user) {
-                if (await login(user.email, user.password)) {
+                if (await login(user.email, user.password, true)) {
                   navigate("/dashboard");
                 }
               }
