@@ -16,7 +16,7 @@ export function ProfileCard() {
     <Card className="w-96 h-64 flex justify-center items-center mt-8 overflow-hidden rounded-2xl shadowBig">
       <div className="bg-[#5932EA] w-full flex justify-center p-4 ">
         <CardHeader floated={false} className="h-28 w-28 rounded-full mt-5 ">
-          <CgProfile className="h-[120px] w-[120px] pr-2 pb-2 bg-white" />
+          <CgProfile className="h-[120px] w-[120px] pr-2 pb-1.5 bg-white" />
         </CardHeader>
       </div>
       <CardBody className="text-center">
