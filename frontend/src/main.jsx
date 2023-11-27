@@ -7,7 +7,7 @@ import { AuthContextProvider } from "./context/AuthContext.jsx";
 import Sidebar from "./components/SideBar.jsx";
 import { BrowserRouter } from "react-router-dom";
 
-axios.defaults.baseURL = "http://localhost:5000/api/";
+axios.defaults.baseURL = "https://we-track-front.vercel.app/api/";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
