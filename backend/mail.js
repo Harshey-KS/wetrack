@@ -44,7 +44,7 @@ const sendMail = async (email, teacher, type) => {
     subject: "Testing for WeTrack",
     text: `We have sent you this mail to inform you that ${teacher} has requested your permission for a ${type} leave.
         
-        Site Link: https://we-track.spit.ac.in`,
+        Site Link: https://we-track-front.vercel.app/`,
   };
   //   console.log("email= ", email);
   let mailTransporter = await createTransporter();
